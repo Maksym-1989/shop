@@ -1,14 +1,21 @@
-import React from 'react';
-import data from '../../../data';
+import React from "react";
 
-const HeaderList = () => {
-    return (
-        <ul>
-            {data.header.map(item => {
-                return (<li key={item}> {item} </li>)
-            })}
-        </ul>
-    );
-}
+import { HeaderNavigation } from "./HeaderListStyled";
+
+const HeaderList = ({ data }) => {
+  return (
+    <HeaderNavigation>
+      <ul className="navigationList">
+        {data.map((headerItem) => (
+          <li key={headerItem} className="navigationListItem">
+            <a href={`${headerItem}`} className="navigationListItemAnchor">
+              {headerItem}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </HeaderNavigation>
+  );
+};
 
 export default HeaderList;
